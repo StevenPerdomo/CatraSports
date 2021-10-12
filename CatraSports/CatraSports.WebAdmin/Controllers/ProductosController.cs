@@ -32,7 +32,7 @@ namespace CatraSports.WebAdmin.Controllers
             var nuevoProducto = new Producto();
             var categorias = _categoriasBL.ObtenerCategorias();
 
-            ViewBag.ListaCategorias =
+            ViewBag.CategoriaId =
                  new SelectList(categorias, "Id", "Descripcion");
 
             return View(nuevoProducto);
