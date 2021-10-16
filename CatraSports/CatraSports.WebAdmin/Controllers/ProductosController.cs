@@ -39,7 +39,7 @@ namespace CatraSports.WebAdmin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Crear(Producto producto)
+        public ActionResult Crear(Producto producto, HttpPostedFileBase imagen)
         {
             if(ModelState.IsValid)
             {
@@ -47,6 +47,11 @@ namespace CatraSports.WebAdmin.Controllers
                 {
                     ModelState.AddModelError("Categoria", "Seleccione una Categoria");
                     return View(producto);
+                }
+
+                if(imagen != null)
+                {
+                    producto.UrlImagen = GuardarImagen(imagen);
                 }
                 _productosBL.GuardarProducto(producto);
 
@@ -74,7 +79,7 @@ namespace CatraSports.WebAdmin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Editar(Producto producto)
+        public ActionResult Editar(Producto producto, HttpPostedFileBase imagen)
         {
             if (ModelState.IsValid)
             {
@@ -82,6 +87,11 @@ namespace CatraSports.WebAdmin.Controllers
                 {
                     ModelState.AddModelError("Categoria", "Seleccione una Categoria");
                     return View(producto);
+                }
+
+                if (imagen != null)
+                {
+                    producto.UrlImagen = GuardarImagen(imagen);
                 }
                 _productosBL.GuardarProducto(producto);
 
@@ -94,7 +104,6 @@ namespace CatraSports.WebAdmin.Controllers
                  new SelectList(categorias, "Id", "Descripcion");
 
             return View(producto);
-
         }
 
         public ActionResult Detalle(int id)
@@ -117,6 +126,14 @@ namespace CatraSports.WebAdmin.Controllers
             _productosBL.EliminarProducto(producto.Id);
 
             return RedirectToAction("Index");
+        }
+
+        private string GuardarImagen(HttpPostedFileBase imagen)
+        {
+            string path = Server.MapPath("~/Imagenes/" + imagen.FileName);
+            imagen.SaveAs(path);
+
+            return "/Imagenes/" + imagen.FileName;
         }
     }
 }

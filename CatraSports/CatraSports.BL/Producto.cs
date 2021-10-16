@@ -15,6 +15,7 @@ namespace CatraSports.BL
         }
 
         public int Id { get; set; }
+        [Display(Name = "Descripcion")]
         [Required(ErrorMessage = "Ingrese la Descripcion")]
         [MinLength(3, ErrorMessage = ("Ingrese minimo 3 caracteres"))]
         [MaxLength(20, ErrorMessage = ("Ingrese maximo de 20 caracteres"))]
@@ -26,6 +27,10 @@ namespace CatraSports.BL
        
         public int CategoriaId { get; set; }
         public Categoria Categoria { get; set; }
+
+        [Display(Name = "Imagen")]
+        public string UrlImagen { get; set; }
+
         public bool Activo { get; set; }
     }
 }
