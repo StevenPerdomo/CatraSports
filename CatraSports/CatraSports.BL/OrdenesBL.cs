@@ -34,6 +34,14 @@ namespace CatraSports.BL
 
             return ListadeOrdenesDetalle;
         }
+
+        public OrdenDetalle ObtenerOrdenDetallePorId(int id)
+        {
+            var ordenDetalle = _contexto.OrdenDetalle
+                .Include("Producto").FirstOrDefault(p => p.Id == id);
+
+            return ordenDetalle;
+        }
         //
         public Orden ObtenerOrden(int id)
         {
@@ -73,5 +81,15 @@ namespace CatraSports.BL
             _contexto.SaveChanges();
         }
 
+        public void EliminarOrdenDetalle(int id)
+        {
+            var ordenDetalle = _contexto.OrdenDetalle.Find(id);
+            _contexto.OrdenDetalle.Remove(ordenDetalle);
+
+            var orden = _contexto.Ordenes.Find(ordenDetalle.OrdenId);
+            orden.Total = orden.Total - ordenDetalle.Total;
+
+            _contexto.SaveChanges();
+        }
     }
 }
