@@ -15,12 +15,14 @@ namespace CatraSports.BL
         public double Total { get; set; }
         public bool Activo { get; set; }
 
-        public List<OrdenDetalle> ListaOrdenDetalle { get; set; }
+        public List<OrdenDetalle> ListadeOrdenDetalle { get; set; }
 
         public Orden()
         {
             Activo = true;
             Fecha = DateTime.Now;
+
+            ListadeOrdenDetalle = new List<OrdenDetalle>();
         }    
     }
 
