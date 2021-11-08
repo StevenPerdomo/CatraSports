@@ -29,7 +29,7 @@ namespace CatraSports.WebAdmin.Controllers
         public ActionResult Crear()
         {
             var nuevaOrden = new Orden();
-            var clientes = _clientesBL.ObtenerClientes();
+            var clientes = _clientesBL.ObtenerClientesActivos();
 
             ViewBag.ClienteId = new SelectList(clientes, "Id", "Nombre");
 
@@ -51,7 +51,7 @@ namespace CatraSports.WebAdmin.Controllers
 
             }
 
-            var clientes = _clientesBL.ObtenerClientes();
+            var clientes = _clientesBL.ObtenerClientesActivos();
 
             ViewBag.ClienteId = new SelectList(clientes, "Id", "Nombre");
 
@@ -61,7 +61,7 @@ namespace CatraSports.WebAdmin.Controllers
         public ActionResult Editar(int id)
         {
             var orden = _ordenesBL.ObtenerOrden(id);
-            var clientes = _clientesBL.ObtenerClientes();
+            var clientes = _clientesBL.ObtenerClientesActivos();
 
             ViewBag.ClienteId = new SelectList(clientes, "Id", "Nombre",orden.ClienteId);
 
@@ -84,7 +84,7 @@ namespace CatraSports.WebAdmin.Controllers
 
             }
 
-            var clientes = _clientesBL.ObtenerClientes();
+            var clientes = _clientesBL.ObtenerClientesActivos();
 
             ViewBag.ClienteId = new SelectList(clientes, "Id", "Nombre", orden.ClienteId);
 
