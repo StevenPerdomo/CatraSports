@@ -1,83 +1,72 @@
-﻿
+﻿@model List<CatraSports.BL.Producto>
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Catra Sports";
 }
 
 <!-- top-collection -->
 <section class="top-collection">
     <div class="container">
-        <h1 class="title text-center mt-4 mb-4">LO MEJOR DE CATRA SPORTS</h1>
+        <h1 class="title text-center mt-4 mb-4" style="color:white;">LO MEJOR DE CATRA SPORTS</h1>
         <div class="row mb-3">
-            <div class="col-md-3">
-                <div class="card-group">
-                    <div class="card">
-                        <img class="card-img-top" src="~/image/home/Baum.jpg" alt="Card ~/image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Bicleta Baum</h5>
-                            <p class="card-text">
-                                De las pocas bicis que actualmente podemos ver montadas con un cuadro completamente en Titánio. Con una geometría de lo más clásica,
-                                esta bici de la marca Baum, nos ofrece la posibilidad de llevar un modelo con cuadro de Titánio,
-                                y equipada con el grupo Shimano Dura Ace Di2, y discos de freno incorporados.
-                            </p>
-                            <a href="#" class="btn btn-dark btn-block">Comprar</a>
+            @foreach (var producto in Model
+                .Where(r => r.Categoria.Descripcion == "Ciclismo")
+                .Take(4)
+                .OrderBy(r => Guid.NewGuid())
+                )
+            {
+                <div class="col-md-3">
+                    <div class="text-center mb-30">
+                        <div class="card-group">
+                            <div class="card">
+                                <div class="img-20x mlr-auto pos-relative">
+                                    <h6 class="ribbon-cont color-white"><div class="ribbon primary"></div></h6>
+                                    <img src="@(ViewBag.adminwebsiteUrl + producto.UrlImagen)" alt="" style="width:220px; height:auto;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">@producto.Descripcion</h5>
+                                    <!--<p class="card-text">
+                                        De las pocas bicis que actualmente podemos ver montadas con un cuadro completamente en Titánio. Con una geometría de lo más clásica,
+                                        esta bici de la marca Baum, nos ofrece la posibilidad de llevar un modelo con cuadro de Titánio,
+                                        y equipada con el grupo Shimano Dura Ace Di2, y discos de freno incorporados.
+                                    </p>-->
+                                    <h4 class="mt-5 color-primary"><b>L @producto.Precio</b></h4>
+                                    <a href="#" class="btn btn-dark btn-block">Comprar</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card-group">
-                    <div class="card">
-                        <img class="card-img-top" src="~/image/home/2.jpg" alt="Card ~/image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Speed Break</h5>
-                            <p class="card-text">Hazte con el control en la cancha con esta zapatilla de baloncesto. Luce una parte superior de malla transpirable y una suela de goma que te ofrece un gran agarre</p>
-                            <a href="#" class="btn btn-dark btn-block">Comprar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card-group">
-                    <div class="card">
-                        <img class="card-img-top" src="~/image/home/3.jpg" alt="Card ~/image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Street Fire</h5>
-                            <p class="card-text">Esta zapatilla de baloncesto te permite desplegar tu juego en cualquier superficie. La mediasuela luce un diseño moteado que le aporta un toque de estilo urbano retro.</p>
-                            <a href="#" class="btn btn-dark btn-block">Comprar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card-group">
-                    <div class="card">
-                        <img class="card-img-top" src="~/image/home/4.jpg" alt="Card ~/image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Jordan Flight Tradition</h5>
-                            <p class="card-text">Luce a la moda  con estos tenis conmemorativos de Michel Jordan, te sentirás muy cómodo gracias a la amortiguación de la unidad Zoom Air</p>
-                            <a href="#" class="btn btn-dark btn-block">Comprar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            }
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <img class="card-img-top" src="~/image/home/5.jpg" alt="Card ~/image cap">
-
-                <div class="card-body">
-                    <h5 class="card-title">New Balance Mujer</h5>
-                    <p class="card-text">Aprovecha nuestros productos con el <span class="text-sport">40%</span> de descuento antes del 30 de noviembre.</p>
-                    <a href="#" class="btn btn-dark btn-block">Comprar</a>
-                </div>
-            </div>
+        <!--Aqui va todo lo que quite--->
+        @foreach (var producto in Model
+                    .Where(r => r.Categoria.Descripcion == "Futbol")
+                    .Take(4)
+                    .OrderBy(r => Guid.NewGuid())
+                    )
+        {
             <div class="col-md-3">
+                <div class="text-center mb-30">
+                    <div class="card-group">
+                        <div class="card">
+                            <img src="@(ViewBag.adminwebsiteUrl + producto.UrlImagen)" alt="" style="width:220px; height:auto;">
+                            <div class="card-body">
+                                <h5 class="card-title">@producto.Descripcion</h5>
+                                <h4 class="mt-5 color-primary"><b>L @producto.Precio</b></h4>
+                                <a href="#" class="btn btn-dark btn-block">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            <!--<div class="col-md-3">
                 <div class="card-group">
                     <div class="card">
-                        <img class="card-img-top" src="~/image/home/2.jpg" alt="Card ~/image cap">
+                        <img src="@(ViewBag.adminwebsiteUrl + producto.UrlImagen)" alt="" style="width:220px; height:auto;">
                         <div class="card-body">
-                            <h5 class="card-title">Speed Break</h5>
-                            <p class="card-text">Hazte con el control en la cancha con esta zapatilla de baloncesto. Luce una parte superior de malla transpirable y una suela de goma que te ofrece un gran agarre</p>
+                            <h5 class="card-title">@producto.Descripcion</h5>
+                            <h4 class="mt-5 color-primary"><b>L @producto.Precio</b></h4>
                             <a href="#" class="btn btn-dark btn-block">Comprar</a>
                         </div>
                     </div>
@@ -86,17 +75,19 @@
             <div class="col-md-3">
                 <div class="card-group">
                     <div class="card">
-                        <img class="card-img-top" src="~/image/home/3.jpg" alt="Card ~/image cap">
+                        <img src="@(ViewBag.adminwebsiteUrl + producto.UrlImagen)" alt="" style="width:220px; height:auto;">
                         <div class="card-body">
-                            <h5 class="card-title">Street Fire</h5>
-                            <p class="card-text">Esta zapatilla de baloncesto te permite desplegar tu juego en cualquier superficie. La mediasuela luce un diseño moteado que le aporta un toque de estilo urbano retro.</p>
+                            <h5 class="card-title">@producto.Descripcion</h5>
+                            <h4 class="mt-5 color-primary"><b>L @producto.Precio</b></h4>
                             <a href="#" class="btn btn-dark btn-block">Comprar</a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div> -->
+        }
     </div>
+
 </section>
+
 
 

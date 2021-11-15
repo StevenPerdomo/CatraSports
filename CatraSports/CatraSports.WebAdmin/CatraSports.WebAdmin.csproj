@@ -1824,6 +1824,13 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Imagenes\Balon_Futbol.jpg" />
+    <Content Include="Imagenes\Baum.jpg" />
+    <Content Include="Imagenes\Bicicleta.jpg" />
+    <Content Include="Imagenes\Casco_Ciclismo.jpg" />
+    <Content Include="Imagenes\descarga.jpg" />
+    <Content Include="Imagenes\Guantes_Ciclismo.jpg" />
+    <Content Include="Imagenes\portada.jpg" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="scripts\bootstrap.js" />
@@ -1914,7 +1921,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Imagenes\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

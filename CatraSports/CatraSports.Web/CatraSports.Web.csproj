@@ -132,6 +132,7 @@
     <Content Include="css\store.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="image\home\001.jpg" />
     <Content Include="image\home\01.jpg" />
     <Content Include="image\home\02.jpg" />
     <Content Include="image\home\1.jpg" />
@@ -144,7 +145,10 @@
     <Content Include="image\home\7.jpg" />
     <Content Include="image\home\8.jpg" />
     <Content Include="image\home\9.jpg" />
+    <Content Include="image\home\Baum.jpg" />
+    <Content Include="image\home\Bicicleta.jpg" />
     <Content Include="image\home\cashout.jpg" />
+    <Content Include="image\home\Cic.jpg" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="scripts\bootstrap.js" />
@@ -154,12 +158,10 @@
     <Content Include="scripts\jquery-1.10.2.min.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
-    <Content Include="Views\Productos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProductosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
